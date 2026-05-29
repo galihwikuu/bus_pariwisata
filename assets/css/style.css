@@ -1,0 +1,1191 @@
+/* ============================================
+   style.css — Janitra Surya Transportation
+   Tema: Merah & Putih (seperti proposal)
+   ============================================ */
+
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800;900&family=Open+Sans:wght@300;400;500;600&display=swap');
+
+:root {
+    --merah:        #CC0000;
+    --merah-tua:    #990000;
+    --merah-muda:   #E53935;
+    --merah-gelap:  #7B0000;
+    --putih:        #FFFFFF;
+    --hitam:        #111111;
+    --abu:          #F5F5F5;
+    --abu-medium:   #E0E0E0;
+    --abu-teks:     #666666;
+    --shadow:       0 8px 32px rgba(204,0,0,0.18);
+    --shadow-card:  0 4px 18px rgba(0,0,0,0.10);
+    --radius:       14px;
+    --radius-sm:    8px;
+    --transition:   all 0.35s cubic-bezier(.4,0,.2,1);
+}
+
+* { margin:0; padding:0; box-sizing:border-box; }
+html { scroll-behavior: smooth; }
+
+body {
+    font-family: 'Open Sans', sans-serif;
+    color: var(--hitam);
+    background: var(--putih);
+    overflow-x: hidden;
+}
+
+h1,h2,h3,h4,h5 { font-family: 'Montserrat', sans-serif; }
+a { text-decoration: none; transition: var(--transition); }
+img { max-width: 100%; }
+
+/* ── DECORATIVE DIAGONAL SHAPE ─────────────────── */
+.diagonal-shape {
+    position: absolute;
+    width: 0; height: 0;
+    border-style: solid;
+}
+
+/* ── NAVBAR ─────────────────────────────────────── */
+.navbar-js {
+    background: var(--merah-tua);
+    padding: 0;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.25);
+    transition: var(--transition);
+}
+
+/* Top bar tipis */
+.navbar-topbar {
+    background: var(--merah-gelap);
+    padding: 5px 0;
+    font-size: 0.75rem;
+    color: rgba(255,255,255,0.75);
+}
+.navbar-topbar a { color: rgba(255,255,255,0.75); }
+.navbar-topbar a:hover { color: white; }
+.nav-inner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 14px 0;
+}
+
+.navbar-brand-js {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    text-decoration: none;
+}
+
+.nav-menu {
+    display: flex;
+    align-items: center;
+    list-style: none;
+    gap: 4px;
+    margin: 0;
+}
+
+.nav-menu a {
+    color: rgba(255,255,255,0.88);
+    font-size: 0.82rem;
+    font-weight: 600;
+    padding: 8px 14px;
+    border-radius: var(--radius-sm);
+    transition: var(--transition);
+    font-family: 'Montserrat', sans-serif;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.nav-menu a:hover,
+.nav-menu a.active {
+    color: white;
+    background: rgba(255,255,255,0.15);
+}
+
+.nav-menu .nav-booking {
+    background: white;
+    color: var(--merah-tua) !important;
+    border-radius: 25px;
+    padding: 8px 20px !important;
+    font-weight: 800 !important;
+    margin-left: 6px;
+}
+
+.nav-menu .nav-booking:hover {
+    background: #FFE0E0;
+    transform: translateY(-1px);
+    box-shadow: 0 4px 15px rgba(255,255,255,0.3);
+}
+
+.nav-logo {
+    height: 70px;
+    filter: brightness(0) invert(1);
+    margin-left: 80px;
+}
+
+.nav-logo-footer {
+    height: 80px;
+    filter: brightness(0) invert(1);
+    margin-left: 45px;
+
+}
+
+.nav-toggler {
+    display: none;
+    background: rgba(255,255,255,0.15);
+    border: 2px solid rgba(255,255,255,0.3);
+    color: white;
+    padding: 8px 12px;
+    border-radius: var(--radius-sm);
+    cursor: pointer;
+    font-size: 1.1rem;
+}
+
+/* ── HERO ────────────────────────────────────────── */
+.hero {
+    min-height: 92vh;
+    background: linear-gradient(135deg, var(--merah-tua) 0%, var(--merah) 60%, #FF1A1A 100%);
+    position: relative;
+    display: flex;
+    align-items: center;
+    overflow: hidden;
+}
+
+/* Diagonal dekoratif merah gelap */
+.hero::before {
+    content: '';
+    position: absolute;
+    top: 0; right: 0;
+    width: 45%;
+    height: 100%;
+    background: rgba(0,0,0,0.18);
+    clip-path: polygon(15% 0, 100% 0, 100% 100%, 0% 100%);
+}
+
+/* Pattern kotak-kotak ala proposal */
+.hero-pattern {
+    position: absolute;
+    bottom: 0; right: 0;
+    width: 300px; height: 100px;
+    opacity: 0.25;
+    background-image:
+        repeating-linear-gradient(45deg, white 0, white 10px, transparent 10px, transparent 20px),
+        repeating-linear-gradient(-45deg, white 0, white 10px, transparent 10px, transparent 20px);
+    background-size: 20px 20px;
+}
+
+.hero-content {
+    position: relative;
+    z-index: 2;
+}
+
+.hero-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: rgba(255,255,255,0.15);
+    border: 1px solid rgba(255,255,255,0.35);
+    color: white;
+    padding: 6px 18px;
+    border-radius: 25px;
+    font-size: 0.78rem;
+    font-weight: 700;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    margin-bottom: 22px;
+    animation: fadeInDown 0.7s ease;
+    font-family: 'Montserrat', sans-serif;
+}
+
+.hero-title {
+    font-size: clamp(2.4rem, 5.5vw, 4rem);
+    font-weight: 900;
+    color: white;
+    line-height: 1.12;
+    margin-bottom: 8px;
+    animation: fadeInUp 0.7s ease 0.2s both;
+    text-transform: uppercase;
+    letter-spacing: -0.5px;
+}
+
+.hero-title .outline-text {
+    -webkit-text-stroke: 2px white;
+    color: transparent;
+}
+
+.hero-tagline {
+    font-size: 1rem;
+    color: rgba(255,255,255,0.85);
+    font-style: italic;
+    margin-bottom: 16px;
+    animation: fadeInUp 0.7s ease 0.3s both;
+}
+
+.hero-desc {
+    font-size: 1rem;
+    color: rgba(255,255,255,0.82);
+    line-height: 1.75;
+    margin-bottom: 36px;
+    max-width: 520px;
+    animation: fadeInUp 0.7s ease 0.4s both;
+}
+
+.hero-btn-group {
+    display: flex;
+    gap: 14px;
+    flex-wrap: wrap;
+    animation: fadeInUp 0.7s ease 0.55s both;
+}
+
+.btn-merah-putih {
+    background: white;
+    color: var(--merah-tua);
+    padding: 14px 36px;
+    border-radius: 4px;
+    font-weight: 800;
+    font-size: 0.9rem;
+    font-family: 'Montserrat', sans-serif;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    transition: var(--transition);
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    box-shadow: 0 6px 20px rgba(0,0,0,0.2);
+}
+
+.btn-merah-putih:hover {
+    background: #FFE0E0;
+    color: var(--merah-tua);
+    transform: translateY(-2px);
+    box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+}
+
+.btn-outline-putih {
+    background: transparent;
+    color: white;
+    padding: 13px 32px;
+    border-radius: 4px;
+    font-weight: 700;
+    font-size: 0.9rem;
+    font-family: 'Montserrat', sans-serif;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    border: 2px solid rgba(255,255,255,0.7);
+    transition: var(--transition);
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.btn-outline-putih:hover {
+    background: rgba(255,255,255,0.15);
+    color: white;
+    border-color: white;
+    transform: translateY(-2px);
+}
+
+.hero-stats {
+    display: flex;
+    gap: 36px;
+    margin-top: 46px;
+    animation: fadeInUp 0.7s ease 0.7s both;
+}
+
+.hero-stat .num {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 2.2rem;
+    font-weight: 900;
+    color: white;
+    line-height: 1;
+}
+
+.hero-stat .lbl {
+    font-size: 0.72rem;
+    color: rgba(255,255,255,0.65);
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    margin-top: 4px;
+}
+
+.hero-divider {
+    width: 1px;
+    height: 44px;
+    background: rgba(255,255,255,0.25);
+    margin-top: 8px;
+}
+
+/* Bus card di hero */
+.hero-bus-wrap {
+    position: relative;
+    z-index: 2;
+    animation: fadeInRight 0.9s ease 0.3s both;
+}
+
+.hero-bus-card {
+    border-radius: var(--radius);
+    overflow: hidden;
+    box-shadow: 0 20px 60px rgba(0,0,0,0.35);
+    position: relative;
+}
+
+.hero-bus-card img {
+    width: 100%;
+    height: 340px;
+    object-fit: cover;
+    display: block;
+}
+
+.hero-bus-overlay {
+    position: absolute;
+    bottom: 0; left: 0; right: 0;
+    background: linear-gradient(transparent, rgba(100,0,0,0.92));
+    padding: 24px 20px 20px;
+}
+
+.hero-bus-overlay .bus-tag {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.hero-bus-overlay .bus-name {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 800;
+    color: white;
+    font-size: 1rem;
+}
+
+.hero-bus-overlay .bus-sub {
+    font-size: 0.75rem;
+    color: rgba(255,255,255,0.7);
+    margin-top: 3px;
+}
+
+.badge-avail {
+    background: #00C853;
+    color: white;
+    font-size: 0.7rem;
+    font-weight: 700;
+    padding: 4px 12px;
+    border-radius: 20px;
+    font-family: 'Montserrat', sans-serif;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    margin-left: auto;
+}
+
+/* Mini fasilitas strip */
+.hero-fas-strip {
+    background: rgba(0,0,0,0.5);
+    backdrop-filter: blur(6px);
+    border-radius: 0 0 var(--radius) var(--radius);
+    padding: 12px 20px;
+    display: flex;
+    gap: 12px;
+    flex-wrap: wrap;
+}
+
+.fas-tag {
+    background: rgba(255,255,255,0.12);
+    border: 1px solid rgba(255,255,255,0.2);
+    color: white;
+    font-size: 0.72rem;
+    font-weight: 600;
+    padding: 4px 12px;
+    border-radius: 20px;
+}
+
+/* ── SECTION COMMONS ─────────────────────────────── */
+.section-label {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 0.72rem;
+    font-weight: 800;
+    color: var(--merah);
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    margin-bottom: 10px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.section-label::before {
+    content: '';
+    display: inline-block;
+    width: 28px;
+    height: 3px;
+    background: var(--merah);
+}
+
+.section-title {
+    font-family: 'Montserrat', sans-serif;
+    font-size: clamp(1.7rem, 3.5vw, 2.5rem);
+    font-weight: 900;
+    color: var(--hitam);
+    line-height: 1.2;
+    margin-bottom: 14px;
+    text-transform: uppercase;
+}
+
+.section-title .red { color: var(--merah); }
+.section-subtitle { color: var(--abu-teks); font-size: 0.97rem; line-height: 1.75; max-width: 560px; }
+
+/* ── KEUNGGULAN ─────────────────────────────────── */
+.keunggulan-section { padding: 90px 0; background: var(--abu); }
+
+.keung-card {
+    background: white;
+    border-radius: var(--radius);
+    padding: 32px 24px;
+    text-align: center;
+    box-shadow: var(--shadow-card);
+    transition: var(--transition);
+    border-bottom: 4px solid transparent;
+    height: 100%;
+    position: relative;
+    overflow: hidden;
+}
+
+.keung-card::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 4px;
+    background: linear-gradient(90deg, var(--merah-tua), var(--merah));
+    transform: scaleX(0);
+    transition: var(--transition);
+}
+
+.keung-card:hover {
+    transform: translateY(-8px);
+    box-shadow: var(--shadow);
+    border-bottom-color: var(--merah);
+}
+
+.keung-card:hover::before { transform: scaleX(1); }
+
+.keung-icon {
+    width: 68px; height: 68px;
+    border-radius: 16px;
+    background: linear-gradient(135deg, var(--merah), var(--merah-tua));
+    display: flex; align-items: center; justify-content: center;
+    font-size: 1.7rem;
+    margin: 0 auto 18px;
+    transition: var(--transition);
+}
+
+.keung-card:hover .keung-icon {
+    transform: scale(1.1) rotate(-5deg);
+    background: linear-gradient(135deg, var(--merah-tua), #500000);
+}
+
+.keung-card h5 {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 0.95rem;
+    font-weight: 800;
+    color: var(--hitam);
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    margin-bottom: 10px;
+}
+
+.keung-card p {
+    font-size: 0.87rem;
+    color: var(--abu-teks);
+    line-height: 1.7;
+    margin: 0;
+}
+
+/* ── BUS DETAIL ─────────────────────────────────── */
+.bus-section { padding: 90px 0; background: white; }
+
+.bus-spec-card {
+    background: linear-gradient(135deg, var(--merah-tua), var(--merah-gelap));
+    border-radius: var(--radius);
+    padding: 36px;
+    color: white;
+    height: 100%;
+    position: relative;
+    overflow: hidden;
+}
+
+.bus-spec-card::after {
+    content: '';
+    position: absolute;
+    bottom: -30px; right: -30px;
+    width: 150px; height: 150px;
+    background: rgba(255,255,255,0.05);
+    border-radius: 50%;
+}
+
+.spec-row {
+    display: flex;
+    align-items: flex-start;
+    gap: 14px;
+    padding: 13px 0;
+    border-bottom: 1px solid rgba(255,255,255,0.12);
+    font-size: 0.9rem;
+}
+
+.spec-row:last-child { border-bottom: none; }
+
+.spec-icon {
+    width: 36px; height: 36px;
+    background: rgba(255,255,255,0.12);
+    border-radius: 8px;
+    display: flex; align-items: center; justify-content: center;
+    flex-shrink: 0;
+    font-size: 1rem;
+}
+
+.spec-label {
+    font-size: 0.72rem;
+    color: rgba(255,255,255,0.55);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-bottom: 2px;
+    font-family: 'Montserrat', sans-serif;
+}
+
+.spec-val {
+    font-weight: 700;
+    color: white;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 0.92rem;
+}
+
+.harga-box {
+    background: white;
+    border-radius: var(--radius-sm);
+    padding: 20px;
+    text-align: center;
+    margin-top: 22px;
+}
+
+.harga-box .from { font-size: 0.72rem; color: var(--abu-teks); text-transform: uppercase; letter-spacing: 1.5px; }
+.harga-box .price {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 1.8rem;
+    font-weight: 900;
+    color: var(--merah-tua);
+    line-height: 1;
+    margin: 4px 0 2px;
+}
+.harga-box .note { font-size: 0.75rem; color: var(--abu-teks); }
+
+/* ── FASILITAS GRID ─────────────────────────────── */
+.fas-grid { padding: 90px 0; background: var(--abu); }
+
+.fas-card {
+    background: white;
+    border-radius: var(--radius);
+    overflow: hidden;
+    box-shadow: var(--shadow-card);
+    transition: var(--transition);
+    height: 100%;
+}
+
+.fas-card:hover {
+    transform: translateY(-6px);
+    box-shadow: var(--shadow);
+}
+
+.fas-card .fas-img {
+    height: 130px;
+    overflow: hidden;
+    position: relative;
+}
+
+.fas-card .fas-img img {
+    width: 100%; height: 100%; object-fit: cover;
+    transition: transform 0.5s ease;
+}
+
+.fas-card:hover .fas-img img { transform: scale(1.08); }
+
+.fas-card .fas-img .fas-emoji {
+    position: absolute;
+    bottom: 10px; left: 14px;
+    font-size: 1.5rem;
+    filter: drop-shadow(0 2px 4px rgba(0,0,0,0.5));
+}
+
+.fas-card .fas-body { padding: 18px; }
+.fas-card .fas-body h6 {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 800;
+    font-size: 0.88rem;
+    color: var(--hitam);
+    text-transform: uppercase;
+    margin-bottom: 6px;
+}
+.fas-card .fas-body p { font-size: 0.82rem; color: var(--abu-teks); line-height: 1.65; margin: 0; }
+
+/* ── GALERI ─────────────────────────────────────── */
+.galeri-section { padding: 90px 0; background: white; }
+
+.galeri-grid-custom {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 12px;
+}
+
+.g-item {
+    border-radius: var(--radius-sm);
+    overflow: hidden;
+    position: relative;
+    cursor: pointer;
+}
+
+.g-item.big { grid-column: span 2; }
+.g-item img { width: 100%; height: 100%; object-fit: cover; display: block; transition: transform 0.5s ease; }
+.g-item:hover img { transform: scale(1.07); }
+
+.g-overlay {
+    position: absolute; inset: 0;
+    background: linear-gradient(to top, rgba(120,0,0,0.8), transparent 50%);
+    opacity: 0; transition: var(--transition);
+    display: flex; align-items: flex-end; padding: 16px;
+}
+
+.g-item:hover .g-overlay { opacity: 1; }
+
+.g-overlay .g-caption {
+    color: white;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 0.82rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+/* ── HARGA / PENAWARAN ───────────────────────────── */
+.harga-section { padding: 90px 0; background: var(--merah-tua); position: relative; overflow: hidden; }
+
+.harga-section::before {
+    content: '';
+    position: absolute;
+    top: -40%; right: -10%;
+    width: 500px; height: 500px;
+    background: rgba(255,255,255,0.04);
+    border-radius: 50%;
+}
+
+.harga-card {
+    background: white;
+    border-radius: var(--radius);
+    padding: 32px;
+    box-shadow: 0 10px 40px rgba(0,0,0,0.2);
+    border-top: 5px solid var(--merah);
+    transition: var(--transition);
+}
+
+.harga-card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 16px 50px rgba(0,0,0,0.3);
+}
+
+.harga-card .harga-title {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 0.78rem;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    color: var(--abu-teks);
+    margin-bottom: 8px;
+}
+
+.harga-card .harga-price {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 2.2rem;
+    font-weight: 900;
+    color: var(--merah-tua);
+    line-height: 1;
+    margin-bottom: 4px;
+}
+
+.harga-card .harga-desc {
+    font-size: 0.82rem;
+    color: var(--abu-teks);
+    margin-bottom: 20px;
+    line-height: 1.6;
+}
+
+.harga-include-item {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 0.85rem;
+    padding: 8px 0;
+    border-bottom: 1px solid #F5F5F5;
+    color: var(--hitam);
+}
+
+.harga-include-item:last-child { border-bottom: none; }
+
+.harga-include-item .dot {
+    width: 8px; height: 8px;
+    border-radius: 50%;
+    flex-shrink: 0;
+}
+
+/* ── SYARAT ─────────────────────────────────────── */
+.syarat-list {
+    list-style: none;
+    padding: 0;
+}
+
+.syarat-list li {
+    display: flex;
+    gap: 12px;
+    align-items: flex-start;
+    padding: 10px 0;
+    border-bottom: 1px solid rgba(255,255,255,0.12);
+    font-size: 0.87rem;
+    color: rgba(255,255,255,0.85);
+    line-height: 1.6;
+}
+
+.syarat-list li:last-child { border-bottom: none; }
+
+.syarat-num {
+    width: 24px; height: 24px;
+    border-radius: 50%;
+    background: rgba(255,255,255,0.15);
+    display: flex; align-items: center; justify-content: center;
+    font-size: 0.72rem;
+    font-weight: 800;
+    color: white;
+    flex-shrink: 0;
+    font-family: 'Montserrat', sans-serif;
+}
+
+/* ── BOOKING FORM ─────────────────────────────────── */
+.booking-section { padding: 90px 0; background: var(--abu); }
+
+.booking-card {
+    background: white;
+    border-radius: var(--radius);
+    padding: 44px;
+    box-shadow: var(--shadow-card);
+    border-top: 5px solid var(--merah);
+}
+
+.form-label {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 700;
+    font-size: 0.78rem;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    color: var(--hitam);
+    margin-bottom: 6px;
+}
+
+.form-control, .form-select {
+    border: 2px solid #E8E8E8;
+    border-radius: var(--radius-sm);
+    padding: 12px 16px;
+    font-size: 0.92rem;
+    font-family: 'Open Sans', sans-serif;
+    transition: var(--transition);
+}
+
+.form-control:focus, .form-select:focus {
+    border-color: var(--merah);
+    box-shadow: 0 0 0 4px rgba(204,0,0,0.10);
+    outline: none;
+}
+
+.btn-submit {
+    background: linear-gradient(135deg, var(--merah), var(--merah-tua));
+    color: white;
+    border: none;
+    width: 100%;
+    padding: 15px;
+    border-radius: var(--radius-sm);
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 800;
+    font-size: 0.95rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    cursor: pointer;
+    transition: var(--transition);
+    box-shadow: 0 6px 20px rgba(204,0,0,0.35);
+}
+
+.btn-submit:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 10px 30px rgba(204,0,0,0.5);
+}
+
+/* ── LAYANAN CARDS ───────────────────────────────── */
+.layanan-section { padding: 90px 0; background: white; }
+
+.lay-card {
+    border-radius: var(--radius);
+    overflow: hidden;
+    box-shadow: var(--shadow-card);
+    transition: var(--transition);
+    height: 100%;
+}
+
+.lay-card:hover {
+    transform: translateY(-8px);
+    box-shadow: var(--shadow);
+}
+
+.lay-card .lay-img {
+    height: 180px;
+    overflow: hidden;
+    position: relative;
+}
+
+.lay-card .lay-img img {
+    width: 100%; height: 100%; object-fit: cover;
+    transition: transform 0.5s ease;
+}
+
+.lay-card:hover .lay-img img { transform: scale(1.08); }
+
+.lay-card .lay-img .lay-overlay {
+    position: absolute; inset: 0;
+    background: linear-gradient(to top, rgba(100,0,0,0.7), transparent);
+}
+
+.lay-card .lay-body {
+    padding: 22px;
+    background: white;
+}
+
+.lay-card .lay-body h5 {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 0.95rem;
+    font-weight: 800;
+    color: var(--hitam);
+    text-transform: uppercase;
+    margin-bottom: 8px;
+}
+
+.lay-card .lay-body p {
+    font-size: 0.85rem;
+    color: var(--abu-teks);
+    line-height: 1.7;
+    margin: 0;
+}
+
+/* ── CTA ─────────────────────────────────────────── */
+.cta-section {
+    padding: 80px 0;
+    background: var(--merah-tua);
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+}
+
+.cta-section::before {
+    content: '';
+    position: absolute;
+    bottom: -20%;
+    left: -10%;
+    width: 400px; height: 400px;
+    background: rgba(0,0,0,0.1);
+    border-radius: 50%;
+}
+
+.cta-section h2 {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 2.4rem;
+    font-weight: 900;
+    color: white;
+    text-transform: uppercase;
+    margin-bottom: 14px;
+}
+
+.cta-section p {
+    color: rgba(255,255,255,0.8);
+    font-size: 1.05rem;
+    margin-bottom: 36px;
+}
+
+/* ── FOOTER ──────────────────────────────────────── */
+.footer { background: #0D0D0D; padding: 70px 0 0; }
+
+.footer-brand-name {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 1.3rem;
+    font-weight: 900;
+    color: white;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.footer-brand-sub {
+    font-size: 0.65rem;
+    color: rgba(255,255,255,0.4);
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    margin-top: 2px;
+}
+
+.footer-desc {
+    color: rgba(255,255,255,0.5);
+    font-size: 0.87rem;
+    line-height: 1.75;
+    margin: 16px 0 20px;
+}
+
+.footer-social a {
+    width: 36px; height: 36px;
+    background: rgba(255,255,255,0.08);
+    border-radius: var(--radius-sm);
+    display: inline-flex; align-items: center; justify-content: center;
+    color: rgba(255,255,255,0.6);
+    margin-right: 8px;
+    transition: var(--transition);
+}
+
+.footer-social a:hover {
+    background: var(--merah);
+    color: white;
+    transform: translateY(-3px);
+}
+
+.footer h6 {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 800;
+    font-size: 0.78rem;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    color: white;
+    margin-bottom: 20px;
+}
+
+.footer-links { list-style: none; padding: 0; }
+.footer-links li { margin-bottom: 10px; }
+.footer-links a {
+    color: rgba(255,255,255,0.5);
+    font-size: 0.87rem;
+    transition: var(--transition);
+}
+.footer-links a:hover { color: var(--merah); padding-left: 6px; }
+
+.footer-contact-item {
+    display: flex; align-items: flex-start; gap: 12px; margin-bottom: 14px;
+}
+
+.footer-contact-item .fci {
+    width: 32px; height: 32px;
+    background: rgba(204,0,0,0.2);
+    border-radius: var(--radius-sm);
+    display: flex; align-items: center; justify-content: center;
+    color: var(--merah);
+    flex-shrink: 0; font-size: 0.85rem;
+}
+
+.footer-contact-item .fct {
+    color: rgba(255,255,255,0.5);
+    font-size: 0.85rem;
+    line-height: 1.6;
+}
+
+.footer-bottom {
+    margin-top: 50px;
+    padding: 18px 0;
+    border-top: 1px solid rgba(255,255,255,0.07);
+    text-align: center;
+    color: rgba(255,255,255,0.3);
+    font-size: 0.82rem;
+}
+
+.footer-bottom span { color: var(--merah); }
+
+/* ── WHATSAPP ────────────────────────────────────── */
+.wa-float {
+    position: fixed;
+    bottom: 28px; right: 28px;
+    z-index: 9999;
+}
+
+.wa-float a {
+    width: 56px; height: 56px;
+    background: #25D366;
+    border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    color: white; font-size: 1.5rem;
+    box-shadow: 0 6px 25px rgba(37,211,102,0.5);
+    transition: var(--transition);
+    position: relative;
+}
+
+.wa-float a::before {
+    content: '';
+    position: absolute; inset: -4px;
+    border-radius: 50%;
+    border: 2px solid rgba(37,211,102,0.4);
+    animation: waPulse 2s infinite;
+}
+
+.wa-float a:hover {
+    transform: scale(1.1) translateY(-3px);
+    box-shadow: 0 10px 35px rgba(37,211,102,0.65);
+}
+
+/* ── ADMIN ───────────────────────────────────────── */
+.admin-layout { display: flex; min-height: 100vh; }
+
+.admin-sidebar {
+    width: 250px;
+    background: linear-gradient(180deg, var(--merah-gelap) 0%, #400000 100%);
+    position: fixed; top: 0; left: 0;
+    height: 100vh; overflow-y: auto;
+    z-index: 100;
+}
+
+.sidebar-head {
+    padding: 24px 20px;
+    border-bottom: 1px solid rgba(255,255,255,0.08);
+}
+
+.sidebar-menu { padding: 12px 0; }
+
+.sidebar-menu a {
+    display: flex; align-items: center; gap: 12px;
+    padding: 12px 20px;
+    color: rgba(255,255,255,0.65);
+    font-size: 0.85rem;
+    font-weight: 600;
+    font-family: 'Montserrat', sans-serif;
+    transition: var(--transition);
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.sidebar-menu a:hover,
+.sidebar-menu a.active {
+    color: white;
+    background: rgba(255,255,255,0.1);
+    border-left: 3px solid white;
+    padding-left: 17px;
+}
+
+.admin-main { margin-left: 250px; flex: 1; background: var(--abu); min-height: 100vh; }
+
+.admin-topbar {
+    background: white;
+    padding: 16px 28px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    box-shadow: 0 2px 12px rgba(0,0,0,0.07);
+    position: sticky; top: 0; z-index: 50;
+}
+
+.admin-content { padding: 28px; }
+
+.stat-card {
+    background: white;
+    border-radius: var(--radius);
+    padding: 26px;
+    box-shadow: var(--shadow-card);
+    display: flex; align-items: center; gap: 18px;
+    border-left: 4px solid;
+    transition: var(--transition);
+}
+
+.stat-card:hover { transform: translateY(-4px); box-shadow: var(--shadow); }
+.stat-card h3 { font-family: 'Montserrat', sans-serif; font-size: 2rem; font-weight: 900; margin: 0; }
+.stat-card p { color: var(--abu-teks); font-size: 0.82rem; margin: 4px 0 0; }
+
+.stat-icon {
+    width: 54px; height: 54px;
+    border-radius: 12px;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 1.4rem; flex-shrink: 0;
+}
+
+/* Status badges */
+.badge-pending    { background:#FFF3CD;color:#856404;border:1px solid #FFECB5;padding:4px 12px;border-radius:20px;font-size:0.75rem;font-weight:700; }
+.badge-disetujui  { background:#D1FAE5;color:#065F46;border:1px solid #A7F3D0;padding:4px 12px;border-radius:20px;font-size:0.75rem;font-weight:700; }
+.badge-selesai    { background:#DBEAFE;color:#1E40AF;border:1px solid #BFDBFE;padding:4px 12px;border-radius:20px;font-size:0.75rem;font-weight:700; }
+.badge-dibatalkan { background:#FEE2E2;color:#991B1B;border:1px solid #FECACA;padding:4px 12px;border-radius:20px;font-size:0.75rem;font-weight:700; }
+
+/* Login */
+.login-page {
+    min-height: 100vh;
+    background: linear-gradient(135deg, var(--merah-gelap), var(--merah-tua));
+    display: flex; align-items: center; justify-content: center;
+    position: relative; overflow: hidden;
+}
+
+.login-card {
+    background: white;
+    border-radius: 16px;
+    padding: 48px 44px;
+    width: 100%; max-width: 420px;
+    box-shadow: 0 20px 60px rgba(0,0,0,0.4);
+    position: relative; z-index: 1;
+    border-top: 6px solid var(--merah);
+}
+
+/* ── ANIMATIONS ──────────────────────────────────── */
+@keyframes fadeInDown { from{opacity:0;transform:translateY(-20px)}to{opacity:1;transform:translateY(0)} }
+@keyframes fadeInUp   { from{opacity:0;transform:translateY(30px)} to{opacity:1;transform:translateY(0)} }
+@keyframes fadeInRight{ from{opacity:0;transform:translateX(40px)}to{opacity:1;transform:translateX(0)} }
+@keyframes waPulse    { 0%{transform:scale(1);opacity:1}100%{transform:scale(1.5);opacity:0} }
+
+.fade-in { opacity:0; transform:translateY(28px); transition:opacity 0.7s ease,transform 0.7s ease; }
+.fade-in.visible { opacity:1; transform:translateY(0); }
+
+/* ── RESPONSIVE ──────────────────────────────────── */
+@media(max-width:991px){
+    .nav-logo {
+        margin-left: 0;
+        height: 35px;
+    }
+    .nav-logo-footer {
+        display: block;
+        margin: 0 auto;
+        position: relative;
+        top: -25px; /* sesuaikan nilainya */
+    }
+    .footer-desc {
+        text-align: center;
+        margin: 8px 0 20px;
+    }
+    .footer-social {
+        display: flex;
+        gap: 12px;
+        justify-content: center;
+    }
+
+    .hero{min-height:auto;padding:70px 0}
+    .nav-menu{display:none;flex-direction:column;position:absolute;top:100%;left:0;right:0;background:var(--merah-tua);padding:16px;gap:4px;z-index:100}
+    .nav-menu.open{display:flex}
+    .nav-toggler{display:block}
+    .admin-sidebar{width:100%;position:static;height:auto}
+    .admin-main{margin-left:0}
+    .galeri-grid-custom{grid-template-columns:1fr 1fr}
+    .g-item.big{grid-column:span 1}
+    .booking-card{padding:24px 20px}
+}
+
+@media(max-width:576px){
+    .fasilitas-item {
+        text-align: center;
+        justify-content: center;
+        flex-direction: column;
+        align-items: center;
+        border-left: none !important;
+        border-top: 4px solid red;
+    }
+    .fasilitas-item > div:first-child {
+        margin: 0 auto;
+    } 
+    .hero-stats{gap:20px}
+    .galeri-grid-custom{grid-template-columns:1fr}
+    .cta-section h2{font-size:1.7rem}
+    .hero-btn-group{flex-direction:column}
+    .btn-merah-putih,.btn-outline-putih{justify-content:center}
+}
