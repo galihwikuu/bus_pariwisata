@@ -50,15 +50,21 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     <div class="login-card" style="position:relative;z-index:1;">
         <!-- Logo -->
         <div style="text-align:center;margin-bottom:28px;">
-            <div style="display:inline-flex;align-items:center;gap:10px;background:var(--merah-tua);border-radius:var(--radius-sm);padding:10px 18px;margin-bottom:16px;">
-                <span style="font-size:1.6rem;">🦅</span>
-                <div style="text-align:left;">
-                    <div style="font-family:'Montserrat',sans-serif;font-weight:900;color:white;font-size:0.9rem;text-transform:uppercase;letter-spacing:0.5px;">JANITRA SURYA</div>
-                    <div style="font-size:0.6rem;color:rgba(255,255,255,0.6);letter-spacing:2px;">TRANSPORTATION</div>
+            <div style="text-align:center;margin-bottom:16px;">
+                <img src="../assets/images/logo.png"
+                    alt="Logo Janitra Surya"
+                    style="height:100px;">
                 </div>
-            </div>
-            <h2 style="font-family:'Montserrat',sans-serif;font-size:1.3rem;font-weight:900;color:var(--hitam);text-transform:uppercase;margin-bottom:4px;">Admin Panel</h2>
-            <p style="color:var(--abu-teks);font-size:0.82rem;margin:0;">Masuk untuk mengelola data booking</p>
+
+                <div>
+                    <h2 style="font-family:'Montserrat',sans-serif;font-size:1.3rem;font-weight:900;color:var(--hitam);text-transform:uppercase;margin-bottom:4px;">
+                        Admin Panel
+                    </h2>
+
+                    <p style="color:var(--abu-teks);font-size:0.82rem;margin:0;">
+                        Masuk untuk mengelola data booking
+                    </p>
+                </div>
         </div>
 
         <?php if (!empty($pesan_error)): ?>

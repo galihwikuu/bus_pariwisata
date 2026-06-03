@@ -177,7 +177,6 @@ body{
 
 <div class="container">
 
-```
 <div class="header">
     <h1>📸 Kelola Galeri</h1>
     <a href="dashboard.php" class="back-btn">
@@ -313,7 +312,6 @@ body{
     </table>
 
 </div>
-```
 
 </div>
 
