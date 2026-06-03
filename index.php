@@ -9,7 +9,7 @@ include 'includes/header.php';
 <section class="hero">
     <!-- Foto bus di background hero dengan overlay -->
     <div style="position:absolute;inset:0;z-index:0;">
-        <img src="assets/images/janitra2.jpg"
+        <img src="assets/images/galeri/janitra_merah_hitam.jpg"
              alt="Bus Pariwisata"
              style="width:100%;height:100%;object-fit:cover;opacity:0.13;">
     </div>
@@ -125,7 +125,7 @@ include 'includes/header.php';
             <div class="col-lg-6 fade-in">
                 <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px;">
                     <div style="grid-column:1/-1;border-radius:var(--radius);overflow:hidden;position:relative;">
-                        <img src="assets/images/janitra2.jpg"
+                        <img src="assets/images/galeri/janitra_merah_hitam.jpg"
                              alt="Bus Janitra Surya Tampak Samping"
                              style="width:100%;height:240px;object-fit:cover;">
                         <div style="position:absolute;top:14px;left:14px;background:var(--merah);color:white;padding:5px 14px;border-radius:4px;font-family:'Montserrat',sans-serif;font-weight:800;font-size:0.72rem;text-transform:uppercase;letter-spacing:1px;">
@@ -133,12 +133,12 @@ include 'includes/header.php';
                         </div>
                     </div>
                     <div style="border-radius:var(--radius-sm);overflow:hidden;">
-                        <img src="assets/images/interior.jpg"
+                        <img src="assets/images/janitra2.jpg"
                              alt="Interior Bus"
                              style="width:100%;height:150px;object-fit:cover;">
                     </div>
                     <div style="border-radius:var(--radius-sm);overflow:hidden;">
-                        <img src="assets/images/janitra1.jpg"
+                        <img src="assets/images/janitra_hitam.jpg"
                              alt="Bus Pariwisata"
                              style="width:100%;height:150px;object-fit:cover;">
                     </div>

@@ -1,320 +1,167 @@
 <?php
+session_start();
+if (!isset($_SESSION['admin_logged_in']) || $_SESSION['admin_logged_in'] !== true) {
+    header('Location: login.php'); exit;
+}
+
 include '../config/koneksi.php';
 
-if (!$conn) {
-    die("Koneksi gagal");
-}
-
 $query = mysqli_query($conn, "SELECT * FROM galeri ORDER BY id DESC");
-
-if (!$query) {
-    die(mysqli_error($conn));
-}
+$total = mysqli_num_rows($query);
 ?>
 
 <!DOCTYPE html>
-
 <html lang="id">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Kelola Galeri</title>
+<title>Data Galeri</title>
 
-<style>
-*{
-    margin:0;
-    padding:0;
-    box-sizing:border-box;
-}
-
-body{
-    background:#f4f6f9;
-    font-family:Arial, sans-serif;
-    padding:30px;
-}
-
-.container{
-    max-width:1200px;
-    margin:auto;
-}
-
-.card{
-    background:#fff;
-    border-radius:15px;
-    padding:25px;
-    margin-bottom:25px;
-    box-shadow:0 5px 20px rgba(0,0,0,.08);
-}
-
-.card h2{
-    margin-bottom:20px;
-    color:#c62828;
-}
-
-.form-group{
-    margin-bottom:15px;
-}
-
-.form-group label{
-    display:block;
-    margin-bottom:6px;
-    font-weight:bold;
-}
-
-.form-control{
-    width:100%;
-    padding:10px;
-    border:1px solid #ddd;
-    border-radius:8px;
-}
-
-.btn{
-    border:none;
-    padding:10px 18px;
-    border-radius:8px;
-    cursor:pointer;
-    text-decoration:none;
-    display:inline-block;
-}
-
-.btn-primary{
-    background:#c62828;
-    color:white;
-}
-
-.btn-primary:hover{
-    background:#a61f1f;
-}
-
-.btn-edit{
-    background:#f39c12;
-    color:white;
-    padding:8px 12px;
-    border-radius:6px;
-    text-decoration:none;
-}
-
-.btn-hapus{
-    background:#e74c3c;
-    color:white;
-    padding:8px 12px;
-    border-radius:6px;
-    text-decoration:none;
-}
-
-.table{
-    width:100%;
-    border-collapse:collapse;
-}
-
-.table th{
-    background:#c62828;
-    color:white;
-    padding:12px;
-    text-align:left;
-}
-
-.table td{
-    padding:12px;
-    border-bottom:1px solid #eee;
-    vertical-align:middle;
-}
-
-.table tr:hover{
-    background:#fafafa;
-}
-
-.thumb{
-    width:120px;
-    height:80px;
-    object-fit:cover;
-    border-radius:8px;
-    border:1px solid #ddd;
-}
-
-.action-buttons{
-    display:flex;
-    gap:8px;
-}
-
-.badge{
-    display:inline-block;
-    padding:5px 10px;
-    border-radius:20px;
-    background:#f1f1f1;
-    font-size:12px;
-}
-
-.header{
-    display:flex;
-    justify-content:space-between;
-    align-items:center;
-    margin-bottom:20px;
-}
-
-.back-btn{
-    background:#444;
-    color:white;
-    padding:10px 15px;
-    border-radius:8px;
-    text-decoration:none;
-}
-
-@media(max-width:768px){
-    body{
-        padding:15px;
-    }
-
-    .table{
-        display:block;
-        overflow-x:auto;
-    }
-}
-</style>
-
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800;900&family=Open+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<link href="../assets/css/style.css" rel="stylesheet">
 </head>
-<body>
 
-<div class="container">
+<body style="background:var(--abu);">
 
-<div class="header">
-    <h1>📸 Kelola Galeri</h1>
-    <a href="dashboard.php" class="back-btn">
-        ← Dashboard
-    </a>
-</div>
+<div class="admin-layout">
 
-<!-- FORM UPLOAD -->
+    <!-- SIDEBAR -->
+    <?php include 'includes/sidebar.php'; ?>
 
-<div class="card">
+    <div class="admin-main">
 
-    <h2>Upload Foto Baru</h2>
-
-    <form action="proses-galeri.php" method="POST" enctype="multipart/form-data">
-
-        <div class="form-group">
-            <label>Judul Foto</label>
-            <input
-                type="text"
-                name="judul"
-                class="form-control"
-                required>
+        <!-- TOPBAR (SAMA PERSIS DATA-BOOKING) -->
+        <div class="admin-topbar">
+            <div>
+                <h5 style="margin:0;font-family:'Montserrat',sans-serif;font-weight:900;color:var(--hitam);text-transform:uppercase;font-size:0.95rem;">
+                    <i class="fas fa-images me-2" style="color:var(--merah);"></i>Data Galeri
+                </h5>
+                <div style="font-size:0.75rem;color:var(--abu-teks);">
+                    Kelola semua foto galeri
+                </div>
+            </div>
+            <a href="logout.php" style="background:var(--abu);color:var(--abu-teks);padding:7px 14px;border-radius:4px;font-size:0.78rem;font-weight:700;font-family:'Montserrat',sans-serif;text-decoration:none;text-transform:uppercase;letter-spacing:0.5px;border:1px solid var(--abu-medium);">
+                <i class="fas fa-sign-out-alt me-1"></i>Logout
+            </a>
         </div>
 
-        <div class="form-group">
-            <label>Kategori</label>
+        <div class="admin-content">
 
-            <select
-                name="kategori"
-                class="form-control"
-                required>
+            <!-- FORM UPLOAD (STYLE SAMA CARD BOOKING) -->
+            <div style="background:white;border-radius:var(--radius);padding:20px 22px;box-shadow:var(--shadow-card);margin-bottom:20px;border-top:4px solid var(--merah);">
 
-                <option value="eksterior">Foto Unit</option>
-                <option value="interior">Interior</option>
-                <option value="wisata">Wisata</option>
-                <option value="studytour">Study Tour</option>
-                <option value="ziarah">Ziarah</option>
+                <h5 style="font-family:'Montserrat',sans-serif;font-weight:900;text-transform:uppercase;font-size:0.9rem;margin-bottom:18px;">
+                    Upload Foto Baru
+                </h5>
 
-            </select>
-        </div>
+                <form action="proses-galeri.php" method="POST" enctype="multipart/form-data">
 
-        <div class="form-group">
-            <label>Pilih Foto</label>
+                    <div class="row g-3">
 
-            <input
-                type="file"
-                name="foto"
-                class="form-control"
-                accept="image/*"
-                required>
-        </div>
+                        <div class="col-md-4">
+                            <label class="form-label">Judul Foto</label>
+                            <input type="text" name="judul" class="form-control" required>
+                        </div>
 
-        <button type="submit" class="btn btn-primary">
-            Upload Foto
-        </button>
+                        <div class="col-md-4">
+                            <label class="form-label">Kategori</label>
+                            <select name="kategori" class="form-select" required>
+                                <option value="eksterior">Foto Unit</option>
+                                <option value="interior">Interior</option>
+                                <option value="wisata">Wisata</option>
+                                <option value="studytour">Study Tour</option>
+                                <option value="ziarah">Ziarah</option>
+                            </select>
+                        </div>
 
-    </form>
+                        <div class="col-md-4">
+                            <label class="form-label">Foto</label>
+                            <input type="file" name="foto" class="form-control" required>
+                        </div>
 
-</div>
+                        <div class="col-12">
+                            <button type="submit"
+                                style="background:var(--merah-tua);color:white;border:none;padding:10px 16px;border-radius:var(--radius-sm);font-family:'Montserrat',sans-serif;font-weight:800;text-transform:uppercase;">
+                                Upload Foto
+                            </button>
+                        </div>
 
-<!-- DAFTAR GALERI -->
+                    </div>
 
-<div class="card">
+                </form>
+            </div>
 
-    <h2>Daftar Foto Galeri</h2>
+            <!-- INFO -->
+            <div style="font-size:0.82rem;color:var(--abu-teks);margin-bottom:12px;font-family:'Montserrat',sans-serif;">
+                Total <strong style="color:var(--hitam);"><?= $total ?></strong> foto
+            </div>
 
-    <table class="table">
+            <!-- TABLE (STYLE PERSIS DATA-BOOKING) -->
+            <div style="background:white;border-radius:var(--radius);box-shadow:var(--shadow-card);overflow:hidden;border-top:4px solid var(--merah);">
 
-        <thead>
-            <tr>
-                <th>No</th>
-                <th>Foto</th>
-                <th>Judul</th>
-                <th>Kategori</th>
-                <th>Aksi</th>
-            </tr>
-        </thead>
+                <div style="overflow-x:auto;">
+                    <table style="width:100%;border-collapse:collapse;min-width:800px;">
 
-        <tbody>
+                        <thead style="background:linear-gradient(135deg,var(--merah-tua),var(--merah-gelap));">
+                            <tr>
+                                <th style="padding:13px 15px;color:white;font-size:0.7rem;text-transform:uppercase;">No</th>
+                                <th style="padding:13px 15px;color:white;font-size:0.7rem;text-transform:uppercase;">Foto</th>
+                                <th style="padding:13px 15px;color:white;font-size:0.7rem;text-transform:uppercase;">Judul</th>
+                                <th style="padding:13px 15px;color:white;font-size:0.7rem;text-transform:uppercase;">Kategori</th>
+                                <th style="padding:13px 15px;color:white;font-size:0.7rem;text-transform:uppercase;">Aksi</th>
+                            </tr>
+                        </thead>
 
-        <?php
-        $no = 1;
-        while($g = mysqli_fetch_assoc($query)):
-        ?>
+                        <tbody>
 
-        <tr>
+                        <?php $no=1; while($g=mysqli_fetch_assoc($query)): ?>
+                            <tr style="border-bottom:1px solid #F5F5F5;">
 
-            <td><?= $no++ ?></td>
+                                <td style="padding:13px 15px;font-weight:700;"><?= $no++ ?></td>
 
-            <td>
-                <img
-                    src="../assets/images/galeri/<?= $g['foto'] ?>"
-                    class="thumb">
-            </td>
+                                <td style="padding:13px 15px;">
+                                    <img src="../assets/images/galeri/<?= $g['foto'] ?>"
+                                         style="width:90px;height:60px;object-fit:cover;border-radius:8px;">
+                                </td>
 
-            <td>
-                <?= htmlspecialchars($g['judul']) ?>
-            </td>
+                                <td style="padding:13px 15px;font-weight:700;color:var(--hitam);">
+                                    <?= htmlspecialchars($g['judul']) ?>
+                                </td>
 
-            <td>
-                <span class="badge">
-                    <?= ucfirst(htmlspecialchars($g['kategori'])) ?>
-                </span>
-            </td>
+                                <td style="padding:13px 15px;color:var(--abu-teks);">
+                                    <?= ucfirst($g['kategori']) ?>
+                                </td>
 
-            <td>
+                                <td style="padding:13px 15px;">
 
-                <div class="action-buttons">
+                                    <a href="edit-galeri.php?id=<?= $g['id'] ?>"
+                                       style="background:#EFF6FF;color:#1E40AF;padding:6px 10px;border-radius:6px;text-decoration:none;font-size:0.75rem;font-weight:700;">
+                                        ✏ Edit
+                                    </a>
 
-                    <a
-                        href="edit-galeri.php?id=<?= $g['id'] ?>"
-                        class="btn-edit">
-                        ✏ Edit
-                    </a>
+                                    <a href="hapus-galeri.php?id=<?= $g['id'] ?>"
+                                       onclick="return confirm('Hapus foto ini?')"
+                                       style="background:#FEE2E2;color:#B91C1C;padding:6px 10px;border-radius:6px;text-decoration:none;font-size:0.75rem;font-weight:700;">
+                                        🗑 Hapus
+                                    </a>
 
-                    <a
-                        href="hapus-galeri.php?id=<?= $g['id'] ?>"
-                        class="btn-hapus"
-                        onclick="return confirm('Yakin ingin menghapus foto ini?')">
-                        🗑 Hapus
-                    </a>
+                                </td>
 
+                            </tr>
+                        <?php endwhile; ?>
+
+                        </tbody>
+
+                    </table>
                 </div>
 
-            </td>
+            </div>
 
-        </tr>
-
-        <?php endwhile; ?>
-
-        </tbody>
-
-    </table>
-
-</div>
-
+        </div>
+    </div>
 </div>
 
 </body>
 </html>
-
