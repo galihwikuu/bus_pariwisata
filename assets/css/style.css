@@ -208,11 +208,12 @@ img { max-width: 100%; }
     animation: fadeInUp 0.7s ease 0.2s both;
     text-transform: uppercase;
     letter-spacing: -0.5px;
-}
 
-.hero-title .outline-text {
-    -webkit-text-stroke: 2px white;
-    color: transparent;
+    /* TAMBAHAN INI */
+    display: flex;
+    align-items: baseline;
+    gap: 18px;
+    flex-wrap: wrap;
 }
 
 .hero-tagline {

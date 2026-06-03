@@ -33,11 +33,12 @@ include 'includes/header.php';
                     Berdiri Sejak 24 April 2025
                 </div>
                 <h1 class="hero-title">
-                    JANITRA SURYA<br>
-                    <span class="outline-text">TRANSPORTATION</span>
+                    <span class="brand-name">JANITRA SURYA</span>
+                    <span class="outline-text">TRANS</span>
                 </h1>
+
                 <p class="hero-tagline">
-                    "Anda Puas Beritahu Relasi, Anda Kecewa Beritahu Kami"
+                    “Anda Puas Beritahu Relasi, Anda Kecewa Beritahu Kami”
                 </p>
                 <p class="hero-desc">
                     Sewa bus pariwisata premium <strong style="color:white;">Jetbus 3++ SHD Air Suspension</strong> — 50 seat reclining, AC dingin,
