@@ -55,8 +55,8 @@ include 'includes/header.php';
                 </div>
                 <div class="hero-stats">
                     <div class="hero-stat">
-                        <div class="num" data-counter="50" data-suffix=" Kursi">0</div>
-                        <div class="lbl">Kapasitas</div>
+                        <div class="num" data-counter="2" data-suffix=" Bus">0</div>
+                        <div class="lbl">Armada</div>
                     </div>
                     <div class="hero-divider"></div>
                     <div class="hero-stat">
