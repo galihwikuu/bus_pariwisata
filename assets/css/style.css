@@ -127,7 +127,8 @@ img { max-width: 100%; }
 .nav-logo-footer {
     height: 80px;
     filter: brightness(0) invert(1);
-    margin-left: 45px;
+    margin-left: 15px;
+    top: 100px;
 
 }
 
@@ -934,6 +935,7 @@ img { max-width: 100%; }
     font-size: 0.87rem;
     line-height: 1.75;
     margin: 16px 0 20px;
+    text-align: justify;
 }
 
 .footer-social a {
@@ -1148,7 +1150,8 @@ img { max-width: 100%; }
         display: block;
         margin: 0 auto;
         position: relative;
-        top: -25px; /* sesuaikan nilainya */
+        top: 100px; /* sesuaikan nilainya */
+        margin-left: 0;
     }
     .footer-desc {
         text-align: center;
