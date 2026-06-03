@@ -7,8 +7,10 @@ session_start();
 if (!isset($_SESSION['admin_logged_in']) || $_SESSION['admin_logged_in'] !== true) {
     header('Location: login.php'); exit;
 }
+
+$halaman_admin = 'ganti-password';
+
 include '../config/koneksi.php';
-$halaman_admin = 'password';
 
 $pesan       = '';
 $tipe_pesan  = '';
@@ -114,11 +116,15 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 </head>
 <body style="background:var(--abu);">
 <div class="admin-layout">
+    <div class="sidebar-overlay" onclick="toggleSidebar()"></div>
     <?php include 'includes/sidebar.php'; ?>
 
     <div class="admin-main">
         <!-- Topbar -->
         <div class="admin-topbar">
+            <button class="sidebar-toggle" onclick="toggleSidebar()">
+                <i class="fas fa-bars"></i>
+            </button>
             <div>
                 <h5 style="margin:0;font-family:'Montserrat',sans-serif;font-weight:900;color:var(--hitam);text-transform:uppercase;font-size:0.95rem;">
                     <i class="fas fa-key me-2" style="color:var(--merah);"></i>Ganti Password
@@ -413,6 +419,16 @@ document.getElementById('formGantiPwd')?.addEventListener('submit', function(e) 
     btn.innerHTML = '<i class="fas fa-spinner fa-spin me-2"></i>Menyimpan...';
     btn.disabled  = true;
 });
+</script>
+
+<script>
+function toggleSidebar(){
+    const sidebar = document.querySelector('.admin-sidebar');
+    const overlay = document.querySelector('.sidebar-overlay');
+
+    if (sidebar) sidebar.classList.toggle('active');
+    if (overlay) overlay.classList.toggle('active');
+}
 </script>
 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>

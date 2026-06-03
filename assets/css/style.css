@@ -1192,3 +1192,119 @@ img { max-width: 100%; }
     .hero-btn-group{flex-direction:column}
     .btn-merah-putih,.btn-outline-putih{justify-content:center}
 }
+
+/* =========================
+   ADMIN RESPONSIVE FIX (FINAL)
+   ========================= */
+
+/* tombol hamburger default: sembunyi */
+.sidebar-toggle {
+    display: none;
+}
+
+/* MOBILE */
+@media (max-width: 991px) {
+
+    /* hamburger muncul */
+    .sidebar-toggle {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        background: var(--merah);
+        color: white;
+        border: none;
+        padding: 8px 10px;
+        border-radius: 6px;
+        font-size: 16px;
+    }
+
+    /* sidebar jadi offcanvas */
+    .admin-sidebar {
+        position: fixed !important;
+        left: -260px;
+        top: 0;
+        height: 100%;
+        z-index: 999;
+        transition: 0.3s ease;
+    }
+
+    .admin-sidebar.active {
+        left: 0;
+    }
+
+    /* overlay */
+    .sidebar-overlay {
+        display: none;
+        position: fixed;
+        inset: 0;
+        background: rgba(0,0,0,0.4);
+        z-index: 998;
+    }
+
+    .sidebar-overlay.active {
+        display: block;
+    }
+
+    /* main full */
+    .admin-main {
+        margin-left: 0 !important;
+        width: 100%;
+    }
+}
+
+/* DESKTOP FIX */
+@media (min-width: 992px) {
+
+    .admin-sidebar {
+        position: fixed;
+        left: 0 !important;
+    }
+
+    .sidebar-toggle {
+        display: none !important;
+    }
+
+    .sidebar-overlay {
+        display: none !important;
+    }
+
+    .admin-main {
+        margin-left: 250px;
+    }
+}
+
+/* =========================
+   FORCE FIX SIDEBAR MOBILE
+   ========================= */
+@media (max-width: 991px) {
+
+    .admin-sidebar {
+        width: 260px !important;
+        max-width: 260px !important;
+        left: -260px !important;
+        position: fixed !important;
+        top: 0 !important;
+        height: 100vh !important;
+        overflow-y: auto;
+        transform: none !important;
+    }
+
+    .admin-sidebar.active {
+        left: 0 !important;
+    }
+}
+
+@media (max-width: 991px) {
+    .sidebar-toggle {
+        display: flex !important;
+        align-items: center;
+        justify-content: center;
+        background: var(--merah) !important;
+        color: white !important;
+        border: none;
+        padding: 8px 10px;
+        border-radius: 6px;
+        font-size: 16px;
+        z-index: 1001;
+    }
+}

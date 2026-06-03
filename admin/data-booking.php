@@ -3,6 +3,7 @@ session_start();
 if (!isset($_SESSION['admin_logged_in']) || $_SESSION['admin_logged_in'] !== true) {
     header('Location: login.php'); exit;
 }
+
 include '../config/koneksi.php';
 $halaman_admin = 'booking';
 $pesan = ''; $tipe = '';
@@ -47,11 +48,15 @@ $total = mysqli_num_rows($result);
 </head>
 <body style="background:var(--abu);">
 <div class="admin-layout">
+    <div class="sidebar-overlay" onclick="toggleSidebar()"></div>
     <?php include 'includes/sidebar.php'; ?>
 
     <div class="admin-main">
         <!-- Topbar -->
         <div class="admin-topbar">
+            <button class="sidebar-toggle" onclick="toggleSidebar()">
+                <i class="fas fa-bars"></i>
+            </button>
             <div>
                 <h5 style="margin:0;font-family:'Montserrat',sans-serif;font-weight:900;color:var(--hitam);text-transform:uppercase;font-size:0.95rem;">
                     <i class="fas fa-calendar-check me-2" style="color:var(--merah);"></i>Data Booking
@@ -282,6 +287,13 @@ function tutupModal() {
 document.getElementById('modalDetail').addEventListener('click', function(e) {
     if (e.target === this) tutupModal();
 });
+</script>
+
+<script>
+function toggleSidebar(){
+    document.querySelector('.admin-sidebar').classList.toggle('active');
+    document.querySelector('.sidebar-overlay').classList.toggle('active');
+}
 </script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
 </body>

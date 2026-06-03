@@ -24,11 +24,16 @@ $booking_terbaru = mysqli_query($conn, "SELECT * FROM booking ORDER BY created_a
 </head>
 <body style="background:var(--abu);">
 <div class="admin-layout">
+    <div class="sidebar-overlay" onclick="toggleSidebar()"></div>
     <?php include 'includes/sidebar.php'; ?>
 
     <div class="admin-main">
+
         <!-- Topbar -->
         <div class="admin-topbar">
+            <button class="sidebar-toggle" onclick="toggleSidebar()">
+                <i class="fas fa-bars"></i>
+            </button>
             <div>
                 <h5 style="margin:0;font-family:'Montserrat',sans-serif;font-weight:900;color:var(--hitam);text-transform:uppercase;font-size:0.95rem;">
                     <i class="fas fa-tachometer-alt me-2" style="color:var(--merah);"></i>Dashboard
@@ -146,6 +151,12 @@ $booking_terbaru = mysqli_query($conn, "SELECT * FROM booking ORDER BY created_a
         </div>
     </div>
 </div>
+<script>
+function toggleSidebar(){
+    document.querySelector('.admin-sidebar').classList.toggle('active');
+    document.querySelector('.sidebar-overlay').classList.toggle('active');
+}
+</script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
