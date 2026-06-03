@@ -193,12 +193,12 @@ include 'includes/header.php';
             $layanan = [
                 ['emoji'=>'🏖️','judul'=>'Wisata Keluarga','desc'=>'Perjalanan wisata ke pantai, pegunungan, dan berbagai destinasi menarik di Jawa Timur & sekitarnya.',
                  'img'=>'https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=500&q=80'],
-                ['emoji'=>'🎓','judul'=>'Study Tour & Kampus','desc'=>'Layanan study tour dan study kampus untuk SD, SMP, SMA, dan perguruan tinggi. Ratusan sekolah telah mempercayai kami.',
-                 'img'=>'https://images.unsplash.com/photo-1523050854058-8df90110c9f1?w=500&q=80'],
+                ['emoji'=>'🎓','judul'=>'Study Tour','desc'=>'Layanan study tour dan study kampus untuk SD, SMP, SMA, dan perguruan tinggi. Ratusan sekolah telah mempercayai kami.',
+                 'img'=>'assets/images/study-tour.jpeg'],
                 ['emoji'=>'🕌','judul'=>'Ziarah Wali','desc'=>'Perjalanan ziarah wali songo dan tempat-tempat suci di Jawa dengan suasana khidmat dan nyaman.',
                  'img'=>'https://images.unsplash.com/photo-1587474260584-136574528ed5?w=500&q=80'],
                 ['emoji'=>'🏢','judul'=>'Gathering Perusahaan','desc'=>'Transportasi gathering kantor, outing, team building, dan berbagai acara perusahaan dengan pelayanan profesional.',
-                 'img'=>'https://images.unsplash.com/photo-1464219789935-c2d9d9aba644?w=500&q=80'],
+                 'img'=>'assets/images/gathering.jpeg'],
             ];
             foreach ($layanan as $i => $l): ?>
             <div class="col-lg-3 col-md-6 fade-in" data-delay="<?= $i*80 ?>">
