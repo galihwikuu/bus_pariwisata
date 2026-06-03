@@ -33,6 +33,9 @@
             <a href="galeri.php" class="<?= $halaman_admin==='galeri'?'active':'' ?>">
             <i class="fas fa-images" style="width:18px;text-align:center;"></i> Galeri
         </a>
+        <a href="ganti-password.php" class="<?= $halaman_admin==='ganti-password'?'active':'' ?>">
+            <i class="fas fa-key" style="width:18px;text-align:center;"></i> Ganti Password
+        </a>
         <div style="padding:12px 20px 4px;font-size:0.62rem;color:rgba(255,255,255,0.3);letter-spacing:2px;text-transform:uppercase;margin-top:8px;">Lainnya</div>
         <a href="../index.php" target="_blank">
             <i class="fas fa-external-link-alt" style="width:18px;text-align:center;"></i> Lihat Website

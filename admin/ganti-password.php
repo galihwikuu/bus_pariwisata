@@ -196,7 +196,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                                         <input type="password" name="password_baru" id="pwdBaru" class="form-control"
                                                placeholder="Masukkan password baru" required
                                                style="padding-right:44px;"
-                                               oninput="checkStrength(this.value); checkRules(this.value);">
+                                               oninput="checkStrength(this.value); checkRules(this.value) ; tryEnableSubmit();">
                                         <button type="button" class="toggle-eye" onclick="togglePwd('pwdBaru','eyeBaru')">
                                             <i class="fas fa-eye" id="eyeBaru"></i>
                                         </button>
@@ -241,7 +241,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                                         <input type="password" name="konfirmasi" id="pwdKonfirmasi" class="form-control"
                                                placeholder="Ulangi password baru" required
                                                style="padding-right:44px;"
-                                               oninput="checkMatch();">
+                                               oninput="checkMatch(); tryEnableSubmit();">
                                         <button type="button" class="toggle-eye" onclick="togglePwd('pwdKonfirmasi','eyeKonfirmasi')">
                                             <i class="fas fa-eye" id="eyeKonfirmasi"></i>
                                         </button>
@@ -250,7 +250,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                                 </div>
 
                                 <!-- Tombol Submit -->
-                                <button type="submit" id="btnSubmit" class="btn-submit" style="border-radius:var(--radius-sm);" disabled>
+                                <button type="submit" id="btnSubmit" class="btn-submit" style="opacity:0.55;cursor:not-allowed;">
                                     <i class="fas fa-save me-2"></i>Simpan Password Baru
                                 </button>
 
@@ -336,7 +336,7 @@ function checkRules(val) {
 
     // Enable/disable tombol submit
     const allValid = Object.values(rules).every(Boolean);
-    tryEnableSubmit(allValid);
+    tryEnableSubmit();
     return allValid;
 }
 
@@ -386,16 +386,22 @@ function checkMatch() {
     }
 }
 
-function tryEnableSubmit(rulesOk) {
-    allRulesValid = rulesOk;
+function tryEnableSubmit() {
     const baru       = document.getElementById('pwdBaru').value;
     const konfirmasi = document.getElementById('pwdKonfirmasi').value;
     const btn        = document.getElementById('btnSubmit');
-    if (!btn) return;
+
+    const rulesOk =
+        baru.length >= 8 &&
+        /[A-Z]/.test(baru) &&
+        /[0-9]/.test(baru) &&
+        /[\W_]/.test(baru);
+
     const ready = rulesOk && baru === konfirmasi && konfirmasi.length > 0;
+
     btn.disabled = !ready;
     btn.style.opacity = ready ? '1' : '0.55';
-    btn.style.cursor  = ready ? 'pointer' : 'not-allowed';
+    btn.style.cursor = ready ? 'pointer' : 'not-allowed';
 }
 
 // ── Konfirmasi sebelum submit ──────────────────
