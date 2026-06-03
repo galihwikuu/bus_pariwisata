@@ -3,8 +3,8 @@ session_start();
 if (!isset($_SESSION['admin_logged_in']) || $_SESSION['admin_logged_in'] !== true) {
     header('Location: login.php'); exit;
 }
-include '../config/koneksi.php';
 $halaman_admin = 'dashboard';
+include '../config/koneksi.php';
 
 $total_all       = mysqli_fetch_assoc(mysqli_query($conn, "SELECT COUNT(*) AS t FROM booking"))['t'];
 $total_pending   = mysqli_fetch_assoc(mysqli_query($conn, "SELECT COUNT(*) AS t FROM booking WHERE status='Pending'"))['t'];
@@ -22,7 +22,7 @@ $booking_terbaru = mysqli_query($conn, "SELECT * FROM booking ORDER BY created_a
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800;900&family=Open+Sans:wght@400;500;600&display=swap" rel="stylesheet">
     <link href="../assets/css/style.css" rel="stylesheet">
 </head>
-<body style="background:var(--abu);">
+<body class="dashboard"style="background:var(--abu);">
 <div class="admin-layout">
     <div class="sidebar-overlay" onclick="toggleSidebar()"></div>
     <?php include 'includes/sidebar.php'; ?>

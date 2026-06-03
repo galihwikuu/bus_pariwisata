@@ -1081,7 +1081,12 @@ img { max-width: 100%; }
     align-items: center;
     justify-content: space-between;
     box-shadow: 0 2px 12px rgba(0,0,0,0.07);
-    position: sticky; top: 0; z-index: 50;
+    position: sticky;
+    top: 0;
+    z-index: 50;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
 }
 
 .admin-content { padding: 28px; }
@@ -1193,118 +1198,187 @@ img { max-width: 100%; }
     .btn-merah-putih,.btn-outline-putih{justify-content:center}
 }
 
+
 /* =========================
-   ADMIN RESPONSIVE FIX (FINAL)
+   ADMIN RESPONSIVE FIX (FINAL CLEAN)
    ========================= */
 
-/* tombol hamburger default: sembunyi */
+/* =========================
+   DESKTOP DEFAULT
+========================= */
 .sidebar-toggle {
     display: none;
 }
 
-/* MOBILE */
+.admin-sidebar {
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 260px;
+    height: 100vh;
+    overflow-y: auto;
+    z-index: 1000;
+}
+
+.admin-main {
+    margin-left: 260px;
+    width: auto;
+}
+
+/* =========================
+   OVERLAY DEFAULT
+========================= */
+.sidebar-overlay {
+    display: none;
+}
+
+/* =========================
+   MOBILE
+========================= */
 @media (max-width: 991px) {
 
-    /* hamburger muncul */
+    .admin-topbar {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        flex-wrap: nowrap;
+        gap: 10px;
+        padding: 12px 14px;
+    }
+
+    /* hamburger tetap kiri */
     .sidebar-toggle {
-        display: inline-flex;
+        flex: 0 0 auto;
+    }
+
+    /* judul dashboard */
+    .admin-topbar h5 {
+        font-size: 0.85rem !important;
+        margin: 0;
+    }
+
+    /* grup admin + avatar */
+    .admin-topbar > div:last-of-type {
+        margin-left: auto; /* dorong ke kanan */
+        display: flex;
+        align-items: center;
+        gap: 10px;
+    }
+
+    /* teks admin */
+    .admin-topbar > div:last-of-type > div:first-child {
+        text-align: right;
+    }
+}
+
+    /* ===== LOGOUT SELALU KANAN ===== */
+    .admin-topbar a {
+        order: 3;
+        flex: 0 0 auto;
+        padding: 6px 10px !important;
+        font-size: 0.72rem !important;
+        white-space: nowrap;
+    }
+
+
+/* HIDE LOGOUT DI DASHBOARD SAJA */
+body.dashboard .admin-topbar a {
+    display: none;
+}
+
+    /* ===== HAMBURGER ===== */
+    .sidebar-toggle {
+        display: flex;
         align-items: center;
         justify-content: center;
-        background: var(--merah);
+        background: var(--merah-tua);
         color: white;
         border: none;
         padding: 8px 10px;
         border-radius: 6px;
         font-size: 16px;
+        z-index: 1001;
     }
 
-    /* sidebar jadi offcanvas */
+    /* ===== SIDEBAR OFFCANVAS ===== */
     .admin-sidebar {
-        position: fixed !important;
-        left: -260px;
+        position: fixed;
         top: 0;
-        height: 100%;
-        z-index: 999;
-        transition: 0.3s ease;
+        left: -260px;
+        width: 260px;
+        height: 100vh;
+        overflow-y: auto;
+        transition: left 0.3s ease;
+        z-index: 1000;
     }
 
     .admin-sidebar.active {
         left: 0;
     }
 
-    /* overlay */
-    .sidebar-overlay {
-        display: none;
-        position: fixed;
-        inset: 0;
-        background: rgba(0,0,0,0.4);
-        z-index: 998;
-    }
-
+    /* ===== OVERLAY ===== */
     .sidebar-overlay.active {
         display: block;
+        position: fixed;
+        inset: 0;
+        background: rgba(0,0,0,0.45);
+        z-index: 999;
     }
 
-    /* main full */
+    /* ===== MAIN FULL ===== */
     .admin-main {
-        margin-left: 0 !important;
+        margin-left: 0;
         width: 100%;
     }
-}
 
-/* DESKTOP FIX */
-@media (min-width: 992px) {
-
-    .admin-sidebar {
-        position: fixed;
-        left: 0 !important;
+    /* ===== LOGOUT BUTTON SMALL ===== */
+    .admin-topbar a {
+        padding: 6px 10px !important;
+        font-size: 0.72rem !important;
     }
 
-    .sidebar-toggle {
-        display: none !important;
+    /* ===== USER TEXT SMALL ===== */
+    .topbar-right div {
+        font-size: 0.75rem;
     }
 
-    .sidebar-overlay {
-        display: none !important;
+    /* ===== CONTENT SPACING ===== */
+    .admin-content {
+        padding: 14px;
     }
 
-    .admin-main {
-        margin-left: 250px;
+    /* ===== STAT CARDS ===== */
+    .stat-card {
+        flex-direction: row;
+        padding: 16px;
+    }
+
+    .stat-card h3 {
+        font-size: 1.4rem;
+    }
+
+    /* ===== TABLE FIX ===== */
+    table {
+        min-width: 600px;
     }
 }
 
 /* =========================
-   FORCE FIX SIDEBAR MOBILE
-   ========================= */
-@media (max-width: 991px) {
+   SMALL PHONE (EXTRA FIX)
+========================= */
+@media (max-width: 576px) {
 
-    .admin-sidebar {
-        width: 260px !important;
-        max-width: 260px !important;
-        left: -260px !important;
-        position: fixed !important;
-        top: 0 !important;
-        height: 100vh !important;
-        overflow-y: auto;
-        transform: none !important;
+    .admin-content {
+        padding: 12px;
     }
 
-    .admin-sidebar.active {
-        left: 0 !important;
+    .row.g-4 .col-lg-3 {
+        flex: 0 0 100%;
+        max-width: 100%;
     }
-}
 
-@media (max-width: 991px) {
-    .sidebar-toggle {
-        display: flex !important;
-        align-items: center;
-        justify-content: center;
-        background: var(--merah) !important;
-        color: white !important;
-        border: none;
-        padding: 8px 10px;
-        border-radius: 6px;
-        font-size: 16px;
-        z-index: 1001;
+    .topbar-right {
+        flex-direction: column;
+        align-items: flex-start;
     }
 }
