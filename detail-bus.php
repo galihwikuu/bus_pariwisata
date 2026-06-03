@@ -125,7 +125,7 @@ include 'includes/header.php';
             $interior_imgs = [
                 ['assets/images/interior.jpg','Interior Bus',true],
                 ['assets/images/kursi-belakang.jpg','Kursi Tampak Belakang',false],
-                ['assets/images/interior3.jpg','TV & Hiburan',false],
+                ['assets/images/interior dalam 1.jpg','Kursi Tampak Depan',false],
                 ['assets/images/interior4.jpg','USB Charger',false],
                 ['assets/images/interior5.jpg','Kabin - Tampak Depan',true],
                 ['assets/images/interior6.jpg','Leg Rest',false],
