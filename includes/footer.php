@@ -22,8 +22,8 @@ $wa_msg = urlencode('Halo PT Janitra Surya Trans, saya ingin menanyakan informas
                 </p>
                 <div class="footer-social">
                     <a href="https://wa.me/<?= $wa_number ?>" target="_blank" title="WhatsApp"><i class="fab fa-whatsapp"></i></a>
-                    <a href="#" title="Instagram"><i class="fab fa-instagram"></i></a>
-                    <a href="#" title="Facebook"><i class="fab fa-facebook-f"></i></a>
+                    <a href="https://www.instagram.com/sewabuspariwisatamalang/?__pwa=1" target="_blank" title="Instagram"><i class="fab fa-instagram"></i></a>
+                    <a href="https://www.facebook.com/Buspariwisatamalangbatu" target="_blank" title="Facebook"><i class="fab fa-facebook-f"></i></a>
                     <a href="https://www.sewabusmalang.com/" target="_blank" title="Website"><i class="fas fa-globe"></i></a>
                 </div>
             </div>
@@ -56,7 +56,7 @@ $wa_msg = urlencode('Halo PT Janitra Surya Trans, saya ingin menanyakan informas
                 <h6>Kontak Kami</h6>
                 <div class="footer-contact-item">
                     <div class="fci"><i class="fas fa-map-marker-alt"></i></div>
-                    <div class="fct">Jl. Boro Terong Dowo No.29, Tirtomoyo Pakis, Kabupaten Malang, Jawa Timur</div>
+                    <div class="fct"><a href="https://www.google.com/maps/place/Jl.+Boro+Terong+Dowo+No.29,+Ulesari,+Tirtomoyo,+Kec.+Pakis,+Kabupaten+Malang,+Jawa+Timur+65154/@-7.9244014,112.6896801,17z/data=!3m1!4b1!4m6!3m5!1s0x2dd6295d9aefc995:0x6d43802d51063c3!8m2!3d-7.9244014!4d112.692255!16s%2Fg%2F11wb1hq619?entry=ttu&g_ep=EgoyMDI2MDUzMS4wIKXMDSoASAFQAw%3D%3D" target="_blank" style="color:rgba(255,255,255,0.5);">Jl. Boro Terong Dowo No.29, Tirtomoyo Pakis, Kabupaten Malang, Jawa Timur</a> </div>
                 </div>
                 <div class="footer-contact-item">
                     <div class="fci"><i class="fas fa-phone"></i></div>
