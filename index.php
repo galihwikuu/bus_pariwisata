@@ -36,9 +36,8 @@ include 'includes/header.php';
                     <span class="brand-name">JANITRA SURYA</span>
                     <span class="outline-text">TRANS</span>
                 </h1>
-
                 <p class="hero-tagline">
-                    “Anda Puas Beritahu Relasi, Anda Kecewa Beritahu Kami”
+                    "Anda Puas Beritahu Relasi, Anda Kecewa Beritahu Kami"
                 </p>
                 <p class="hero-desc">
                     Sewa bus pariwisata premium <strong style="color:white;">Jetbus 3++ SHD Air Suspension</strong> — 50 seat reclining, AC dingin,
