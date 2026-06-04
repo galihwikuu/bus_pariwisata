@@ -54,11 +54,11 @@ include 'includes/header.php';
                     ];
                     foreach ($thumbs as $t): ?>
                     <div style="border-radius:var(--radius-sm);overflow:hidden;cursor:pointer;aspect-ratio:4/3;"
-                         onclick="openLightbox('<?= str_replace('w=500','w=1200',$t[0]) ?>','<?= $t[1] ?>')">
+                        onclick="openLightbox('<?= str_replace('w=500','w=1200',$t[0]) ?>','<?= $t[1] ?>')">
                         <img src="<?= $t[0] ?>" alt="<?= $t[1] ?>"
-                             style="width:100%;height:100%;object-fit:cover;transition:transform 0.4s ease;display:block;"
-                             onmouseover="this.style.transform='scale(1.08)'"
-                             onmouseout="this.style.transform='scale(1)'">
+                            style="width:100%;height:100%;object-fit:cover;transition:transform 0.4s ease;display:block;"
+                            onmouseover="this.style.transform='scale(1.08)'"
+                            onmouseout="this.style.transform='scale(1)'">
                     </div>
                     <?php endforeach; ?>
                 </div>
@@ -126,18 +126,18 @@ include 'includes/header.php';
                 ['assets/images/interior.jpg','Interior Bus',true],
                 ['assets/images/kursi-belakang.jpg','Kursi Tampak Belakang',false],
                 ['assets/images/interior dalam 1.jpg','Kursi Tampak Depan',false],
-                ['assets/images/interior4.jpg','USB Charger',false],
-                ['assets/images/interior5.jpg','Kabin - Tampak Depan',true],
-                ['assets/images/interior6.jpg','Leg Rest',false],
+                ['assets/images/Usb.jpg','USB Charger',false],
+                ['assets/images/Bagasi_dalam.jpg','Bagasi dalam yang luas',true],
+                ['assets/images/bose.jpg','Bose Sound System',false],
             ];
             foreach ($interior_imgs as $img): ?>
             <div class="col-<?= $img[2] ? 'md-8' : 'md-4' ?>">
                 <div style="border-radius:var(--radius-sm);overflow:hidden;cursor:pointer;aspect-ratio:<?= $img[2] ? '16/9' : '4/3' ?>;"
-                     onclick="openLightbox('<?= str_replace(['w=700','w=500'],['w=1400','w=1200'],$img[0]) ?>','<?= $img[1] ?>')">
+                    onclick="openLightbox('<?= str_replace(['w=700','w=500'],['w=1400','w=1200'],$img[0]) ?>','<?= $img[1] ?>')">
                     <img src="<?= $img[0] ?>" alt="<?= $img[1] ?>"
-                         style="width:100%;height:100%;object-fit:cover;display:block;transition:transform 0.5s ease;"
-                         onmouseover="this.style.transform='scale(1.06)'"
-                         onmouseout="this.style.transform='scale(1)'">
+                        style="width:100%;height:100%;object-fit:cover;display:block;transition:transform 0.5s ease;"
+                        onmouseover="this.style.transform='scale(1.06)'"
+                        onmouseout="this.style.transform='scale(1)'">
                 </div>
             </div>
             <?php endforeach; ?>

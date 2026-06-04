@@ -1361,10 +1361,10 @@ body.dashboard .admin-topbar a {
     table {
         min-width: 600px;
     }
-}
+
 
 /* =========================
-   SMALL PHONE (EXTRA FIX)
+SMALL PHONE (EXTRA FIX)
 ========================= */
 @media (max-width: 576px) {
 
