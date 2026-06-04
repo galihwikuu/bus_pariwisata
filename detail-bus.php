@@ -11,7 +11,7 @@ include 'includes/header.php';
     <div class="container" style="position:relative;z-index:1;">
         <div class="section-label" style="justify-content:center;color:rgba(255,255,255,0.5);">Armada Kami</div>
         <h1 style="font-family:'Montserrat',sans-serif;font-size:2.5rem;font-weight:900;color:white;text-transform:uppercase;margin-bottom:12px;">Detail Unit Bus</h1>
-        <p style="color:rgba(255,255,255,0.75);max-width:500px;margin:0 auto 16px;">Jetbus 3++ SHD Air Suspension — 1 Unit Bus Premium</p>
+        <p style="color:rgba(255,255,255,0.75);max-width:500px;margin:0 auto 16px;">Jetbus 3++ SHD Air Suspension — 2 Unit Bus Premium</p>
         <nav aria-label="breadcrumb"><ol class="breadcrumb justify-content-center" style="background:transparent;">
             <li class="breadcrumb-item"><a href="index.php" style="color:rgba(255,255,255,0.6);">Beranda</a></li>
             <li class="breadcrumb-item active" style="color:white;">Detail Bus</li>
@@ -28,11 +28,11 @@ include 'includes/header.php';
             <div class="col-lg-7 fade-in">
                 <!-- Foto utama -->
                 <div style="border-radius:var(--radius);overflow:hidden;margin-bottom:12px;position:relative;cursor:pointer;"
-                     onclick="openLightbox('assets/images/janitra2.jpg','Bus Janitra Surya - Tampak Samping')">
+                    onclick="openLightbox('assets/images/janitra2.jpg','Bus Janitra Surya - 2 bus premium dengan fasilitas lengkap')">
                     <img id="mainBusImg"
-                         src="assets/images/janitra2.jpg"
-                         alt="Jetbus 3++ SHD Janitra Surya"
-                         style="width:100%;height:380px;object-fit:cover;display:block;transition:transform 0.4s ease;">
+                        src="assets/images/janitra99.jpg"
+                        alt="Jetbus 3++ SHD Janitra Surya"
+                        style="width:100%;height:380px;object-fit:cover;display:block;transition:transform 0.4s ease;">
                     <div style="position:absolute;top:14px;left:14px;background:var(--merah);color:white;padding:6px 16px;border-radius:4px;font-family:'Montserrat',sans-serif;font-weight:800;font-size:0.72rem;text-transform:uppercase;letter-spacing:1px;">
                         ⭐ JETBUS 3++ SHD
                     </div>
@@ -45,12 +45,12 @@ include 'includes/header.php';
                 <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:10px;">
                     <?php
                     $thumbs = [
-                        ['assets/images/janitra1.jpg','Tampak Samping Kanan'],
-                        ['assets/images/janitra2.jpg','Tampak Depan'],
-                        ['assets/images/kursi-belakang.jpg','Di Lokasi Parkir'],
+                        ['assets/images/janitra2bus.jpg','Tampak Samping Kanan'],
+                        ['assets/images/janitra_hitam.jpg','Tampak Depan'],
+                        ['assets/images/janitra2.jpg','Di Lokasi Parkir'],
                         ['assets/images/interior.jpg','Interior Kabin'],
-                        ['assets/images/janitra1.jpg','Di Perjalanan'],
-                        ['assets/images/janitra2.jpg','Wisata'],
+                        ['assets/images/janitra_hitam2.jpg','Di Perjalanan'],
+                        ['assets/images/janitra1.jpg','Wisata'],
                     ];
                     foreach ($thumbs as $t): ?>
                     <div style="border-radius:var(--radius-sm);overflow:hidden;cursor:pointer;aspect-ratio:4/3;"

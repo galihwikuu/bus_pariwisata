@@ -72,7 +72,7 @@ $wa_msg = urlencode('Halo PT Janitra Surya Trans, saya ingin menanyakan informas
                 </div>
                 <div class="footer-contact-item">
                     <div class="fci"><i class="fas fa-clock"></i></div>
-                    <div class="fct">Senin – Minggu: 07.00 – 20.00 WIB</div>
+                    <div class="fct">Senin - Minggu: 07.00 - 20.00 WIB</div>
                 </div>
             </div>
         </div>
