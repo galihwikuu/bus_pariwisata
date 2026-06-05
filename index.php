@@ -281,9 +281,9 @@ include 'includes/header.php';
                 ['🧳','Bagasi Luas','Ruang bagasi di bawah kabin yang sangat luas, cukup untuk koper dan barang bawaan seluruh rombongan.',
                  'https://images.unsplash.com/photo-1594971475674-6a97558f7836?w=400&q=70'],
                 ['🛡️','APAR & Palu Pemecah Kaca','Standar K3 terpenuhi: APAR dan palu pemecah kaca tersedia di setiap bus untuk keselamatan penumpang.',
-                 'https://images.unsplash.com/photo-1554224155-6726b3ff858f?w=400&q=70'],
+                 'assets/images/fasilitas/apar.jpeg'],
                 ['🌬️','Air Suspension','Sistem air suspension memberikan kenyamanan maksimal. Guncangan di jalan diminimalisir untuk perjalanan halus.',
-                 'https://images.unsplash.com/photo-1544620347-c4fd4a3d5957?w=400&q=70'],
+                 'assets/images/fasilitas/suspensi.jpeg'],
             ];
             foreach ($fas as $i => $f): ?>
             <div class="col-lg-4 col-md-6 fade-in" data-delay="<?= $i*50 ?>">
