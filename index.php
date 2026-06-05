@@ -127,20 +127,20 @@ include 'includes/header.php';
                     <div style="grid-column:1/-1;border-radius:var(--radius);overflow:hidden;position:relative;">
                         <img src="assets/images/galeri/janitra_merah_hitam.jpg"
                              alt="Bus Janitra Surya Tampak Samping"
-                             style="width:100%;height:240px;object-fit:cover;">
+                             style="width:100%;height:300px;object-fit:cover;">
                         <div style="position:absolute;top:14px;left:14px;background:var(--merah);color:white;padding:5px 14px;border-radius:4px;font-family:'Montserrat',sans-serif;font-weight:800;font-size:0.72rem;text-transform:uppercase;letter-spacing:1px;">
                             ⭐ Jetbus 3++ SHD
                         </div>
                     </div>
                     <div style="border-radius:var(--radius-sm);overflow:hidden;">
-                        <img src="assets/images/janitra2.jpg"
+                        <img src="assets/images/janitra_hitam2.jpg"
                              alt="Interior Bus"
-                             style="width:100%;height:150px;object-fit:cover;">
+                             style="width:100%;height:260px;object-fit:cover;">
                     </div>
                     <div style="border-radius:var(--radius-sm);overflow:hidden;">
-                        <img src="assets/images/janitra_hitam.jpg"
+                        <img src="assets/images/janitra1.jpg"
                              alt="Bus Pariwisata"
-                             style="width:100%;height:150px;object-fit:cover;">
+                             style="width:100%;height:260px;object-fit:cover;">
                     </div>
                 </div>
             </div>
